@@ -1,21 +1,38 @@
 package com.first.employee;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Employee {
+    @Id
+    @SequenceGenerator(
+            name = "employee_sequence",
+            sequenceName = "employee_sequence",
+            allocationSize = 1
+    )
     private Long id;
     private String name;
     private String role;
     private int age;
     private LocalDate join_date;
 
-    public Employee(Long id, String name, String role, int age, LocalDate join_date) {
+     Employee(Long id, String name, String role, int age, LocalDate join_date) {
         this.id = id;
         this.name = name;
         this.role = role;
         this.age = age;
         this.join_date = join_date;
+    }
+
+    public Employee() {
+
     }
 
     public Long getId() {
