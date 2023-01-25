@@ -12,12 +12,9 @@ import java.time.LocalDate;
 @Table
 public class Employee {
     @Id
-    @SequenceGenerator(
-            name = "employee_sequence",
-            sequenceName = "employee_sequence",
-            allocationSize = 1
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = false, length = 62)
     private String name;
     private String role;
     private int age;
@@ -32,7 +29,10 @@ public class Employee {
     }
 
     public Employee() {
-
+        this.name = "";
+        this.role = "";
+        this.age = 0;
+        this.join_date = null;
     }
 
     public Long getId() {
