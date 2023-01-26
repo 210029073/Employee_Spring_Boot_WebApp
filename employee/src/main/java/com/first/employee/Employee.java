@@ -3,7 +3,6 @@ package com.first.employee;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.*;
 import java.time.LocalDate;
