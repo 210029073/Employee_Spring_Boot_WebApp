@@ -18,13 +18,15 @@ public class Employee {
     private String name;
     private String role;
     private int age;
+    private LocalDate DATE_OF_BIRTH;
     private LocalDate join_date;
 
-     Employee(Long id, String name, String role, int age, LocalDate join_date) {
+     Employee(Long id, String name, String role, LocalDate DOB, LocalDate join_date) {
         this.id = id;
         this.name = name;
         this.role = role;
-        this.age = LocalDate.now().getYear()-join_date.getYear();
+        this.DATE_OF_BIRTH = DOB;
+         this.age = (LocalDate.now().getYear() - this.DATE_OF_BIRTH.getYear());
         this.join_date = join_date;
     }
 
@@ -35,6 +37,13 @@ public class Employee {
         this.join_date = null;
     }
 
+    public LocalDate getDATE_OF_BIRTH() {
+         return this.DATE_OF_BIRTH;
+    }
+
+    public void setDATE_OF_BIRTH(LocalDate DATE_OF_BIRTH) {
+         this.DATE_OF_BIRTH = DATE_OF_BIRTH;
+    }
     public Long getId() {
         return id;
     }
@@ -56,10 +65,8 @@ public class Employee {
     }
 
     public int getAge() {
-        return age;
+         return this.age = LocalDate.now().getYear() - DATE_OF_BIRTH.getYear();
     }
-
-
     public LocalDate getJoin_date() {
         return join_date;
     }

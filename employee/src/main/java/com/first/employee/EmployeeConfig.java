@@ -19,7 +19,7 @@ public class EmployeeConfig {
                         1L,
                         "Maya Bee",
                         "Beekeeper",
-                        20,
+                        LocalDate.of(2002, Month.DECEMBER, 31),
                         LocalDate.of(2003, Month.JANUARY, 1)
                 );
 
@@ -27,7 +27,7 @@ public class EmployeeConfig {
                         2L,
                         "Honeycomb bee",
                         "Worker Bee",
-                        36,
+                        LocalDate.of(1956, Month.AUGUST, 23),
                         LocalDate.of(1986, Month.DECEMBER, 1)
                 );
 
