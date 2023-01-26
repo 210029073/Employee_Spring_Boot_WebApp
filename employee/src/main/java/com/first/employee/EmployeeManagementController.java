@@ -23,9 +23,4 @@ public class EmployeeManagementController {
         employeeRepository.save(employee);
         return "index";
     }
-
-    @GetMapping("/home")
-    public String home(){
-        return "index";
-    }
 }
