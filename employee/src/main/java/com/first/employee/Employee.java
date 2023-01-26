@@ -24,7 +24,7 @@ public class Employee {
         this.id = id;
         this.name = name;
         this.role = role;
-        this.age = age;
+        this.age = LocalDate.now().getYear()-join_date.getYear();
         this.join_date = join_date;
     }
 
@@ -37,10 +37,6 @@ public class Employee {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -63,9 +59,6 @@ public class Employee {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public LocalDate getJoin_date() {
         return join_date;
