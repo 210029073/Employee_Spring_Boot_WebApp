@@ -3,9 +3,8 @@ package com.first.employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -39,5 +38,9 @@ public class EmployeeService {
 
     public List<Employee> getEmployees() {
         return employeeRepository.findAll();
+    }
+
+    public void deleteEmployee(Long id) {
+        employeeRepository.deleteEmployeeById(id);
     }
 }
