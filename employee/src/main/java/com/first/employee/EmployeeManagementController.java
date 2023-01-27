@@ -6,17 +6,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.View;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 public class EmployeeManagementController {
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository; //bad practice do not access the repository
 
     @Autowired
-    private final EmployeeService employeeService;
+    private final EmployeeService employeeService; //we use services to do the actual logic
 
     public EmployeeManagementController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -35,7 +39,7 @@ public class EmployeeManagementController {
 
     @GetMapping("/delete")
     public String searchEmployeeForDeletion(Model model) {
-        model.addAttribute("employees", employeeRepository.findAll());
+        model.addAttribute("employees", employeeService.getEmployees());
         return  "delete";
     }
 
@@ -44,13 +48,28 @@ public class EmployeeManagementController {
     public String deleteEmployee(@RequestParam Long employeeID) {
         if(employeeID == 0) System.out.println("Employee does not hold any details");
         else System.out.println("ID: " + employeeID);
-        employeeRepository.deleteEmployeeById(employeeID);
+        employeeService.deleteEmployee(employeeID);
         return "index";
     }
 
     @GetMapping("/employee/viewAll")
     public String enumerateEmployees(Model model) {
-        model.addAttribute("employees", employeeRepository.findAll());
+        model.addAttribute("employees", employeeService.getEmployees());
         return "viewAllEmployees";
+    }
+
+    @GetMapping("/search")
+    public String findEmployeesByName(Model model) {
+        model.addAttribute("name", "");
+        return "index";
+    }
+
+    @PostMapping("/search")
+    public String findEmployeesByName(Model model, String name) {
+        if(employeeService.findEmployeeByName(name) != null) {
+            List<Employee> foundEmployees = employeeService.findEmployeeByName(name);
+            model.addAttribute("employees", foundEmployees);
+        }
+        return "index";
     }
 }

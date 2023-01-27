@@ -7,6 +7,21 @@
 <body>
 <h1>Employee Management System</h1>
 <hr/>
+<h2>Search an Employee</h2>
+
+<form action="/search" method="post">
+    <input type="text" name="name" placeholder="Search an Employee's name" th:text="${name}"/>
+    <button type="submit">Search</button>
+    <div th:if="${employees != null}">
+        <div th:each="employee : ${employees}">
+            <strong>You have search for <p th:text="${name}"></p></strong>
+            <p th:text="${employee.getName()}"></p>
+            <p th:text="${employee.getRole()}"></p>
+            <p th:text="${employee.getJoin_date()}"></p>
+        </div>
+    </div>
+</form>
+
 <ul>
     <li>Register Employees <a th:href="@{/register}">here</a></li>
     <li>View All Employees <a th:href="@{/employee/viewAll}">here</a></li>

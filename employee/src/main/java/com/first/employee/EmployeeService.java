@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -37,7 +36,23 @@ public class EmployeeService {
 //    }
 
     public List<Employee> getEmployees() {
+//        System.out.println(this.getClass().getName());
         return employeeRepository.findAll();
+    }
+
+    public List<Employee> findEmployeeByName(String name) {
+        for(int i = 0; i < employeeRepository.findEmployeeByName(name).size(); i++) {
+            if(employeeRepository.findEmployeeByName(name).contains(employeeRepository.findEmployeeByName(name).get(i)) &&
+                    i < employeeRepository.findEmployeeByName(name).size()) {
+                return employeeRepository.findEmployeeByName(name);
+            }
+        }
+//bug!!!
+//        if(employeeRepository.findEmployeeByName(name).isEmpty() || name == null) {
+//            throw new IllegalStateException("No Employees found from search criteria: \'" + name + "\'");
+//        }
+
+        return null;
     }
 
     public void deleteEmployee(Long id) {
