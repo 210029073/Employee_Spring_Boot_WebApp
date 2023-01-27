@@ -19,7 +19,8 @@ I have also included in the pom.xml file the dependency thymeleaf that provides 
 Thymeleaf is a modern server-side Java template engine for both web and standalone environments.
 
 ##### Learn more about Thymeleaf
-[url="https://www.thymeleaf.org/"]
+To learn more about Thymeleaf please visit the link below.
+https://www.thymeleaf.org/
 
 ## Additional Notes
 Feel free to make changes to the source code.
