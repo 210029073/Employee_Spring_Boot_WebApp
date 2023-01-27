@@ -3,6 +3,7 @@ A simple employee web application written in Java provided by the Spring Boot fr
 
 ## No CSS has been included yet...
 However, there no CSS has been applied to the pages yet. Will be added to the upcoming versions.
+Though, primary aim was to keep things simple, and make sure everything works.
 
 ## Setup
 The following project will work on **Eclipse** and **IntelliJ IDE**.
