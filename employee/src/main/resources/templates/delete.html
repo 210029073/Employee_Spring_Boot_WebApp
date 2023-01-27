@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<h1>Delete an Employee</h1>
+<hr/>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Join Date</th>
+        <th>Delete a Record</th>
+    </tr>
+    <tr th:each="e : ${employees}">
+        <td type="hidden" th:text="${e.getId()}" th:valuetype="Long" readonly></td>
+
+        <td type="text" th:text="${e.getName()}"></td>
+
+        <td type="text" th:text="${e.getRole()}"></td>
+
+        <td type="text" th:text="${e.getJoin_date()}"></td>
+        <td><a th:href="@{/employee/deleteSuccess(employeeID=${e.getId()})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
