@@ -15,6 +15,21 @@ https://www.eclipse.org/downloads/packages/
 To get IntelliJ goto:
 https://www.jetbrains.com/idea/ 
 
+## Create Database in MySQL
+Type the following to MySQL
+<code>
+  CREATE DATABASE employee;
+  CREATE TABLE employee (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    role TEXT,
+    join_date DATe,
+    date_of_birth DATE
+  )
+</code>
+
+Feel free to inform me if there is any errors in the SQL statements.
+
 ### Additional details to setup
 Since the Spring boot web application using Maven for handling dependencies, it should just work automatically when importing the source code to the IDE, though in some cases it may involve retrieving the dependencies. Please be aware. 
 
